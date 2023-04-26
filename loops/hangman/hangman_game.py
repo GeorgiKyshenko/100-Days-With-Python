@@ -18,7 +18,7 @@ for _ in range(len(chosen_word)):
 
 print(concat_word(display))
 end_of_game = False
-lives = 6
+lives = 7
 
 while not end_of_game:
     guess = input("Guess a letter: ").lower()
@@ -27,9 +27,9 @@ while not end_of_game:
             display[position] = guess
     print(concat_word(display))
     if guess not in chosen_word:
-        print(hangman_display.stages[lives])
+        print(hangman_display.stages[lives - 1])
         lives -= 1
-        if lives < 0:
+        if lives == 0:
             end_of_game = True
             print("You lost!")
         else:
