@@ -25,16 +25,14 @@ while not end_of_game:
     for position in range(len(chosen_word)):
         if chosen_word[position] == guess:
             display[position] = guess
-    print(concat_word(display))
     if guess not in chosen_word:
         print(hangman_display.stages[lives - 1])
         lives -= 1
         if lives == 0:
             end_of_game = True
-            print("You lost!")
-        else:
-            print(concat_word(display))
-            continue
-    if "_" not in display and lives > 0:
+            print(f"You lost!\nThe word is: {concat_word(chosen_word)}")
+    else:
+        print(concat_word(display))
+    if "_" not in display:
         end_of_game = True
-        print("You guessed the word!")
+        print("Congratulation! You guessed the word!")
