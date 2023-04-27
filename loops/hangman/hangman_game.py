@@ -1,5 +1,5 @@
 import random
-import hangman_display
+from hangman_display import stages
 
 
 def concat_word(word):
@@ -26,7 +26,7 @@ while not end_of_game:
         if chosen_word[position] == guess:
             display[position] = guess
     if guess not in chosen_word:
-        print(hangman_display.stages[lives - 1])
+        print(f'You guessed "{guess}", that`s not in the word. You loose a point.\n{stages[lives - 1]}')
         lives -= 1
         if lives == 0:
             end_of_game = True
